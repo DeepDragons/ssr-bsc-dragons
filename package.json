@@ -28,6 +28,7 @@
     "typescript": "^4.7.3"
   },
   "dependencies": {
+    "svelte-i18n": "^3.4.0",
     "svelte-spa-router": "^3.2.0"
   }
 }
