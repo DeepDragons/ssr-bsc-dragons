@@ -1,17 +1,18 @@
 <script lang="ts">
+	import { Link } from "svelte-routing";
 </script>
 
 <nav>
 	<ul>
 		<li>
-			<a href="">
+			<Link to="/">
 				<img
 					src="/favicon/ms-icon-310x310.png"
 					alt="Logo"
 					height="60"
 				/>
 				Dragons
-			</a>
+			</Link>
 		</li>
 	</ul>
 </nav>

@@ -1,7 +1,6 @@
-import App from './App.svelte';
+import Route from './Route.svelte';
 
-const app = new App({
-	target: document.body
+export default new Route({
+	target: document.body,
+	hydrate: false
 });
-
-export default app;
