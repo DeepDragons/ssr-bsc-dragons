@@ -2,8 +2,39 @@
 
 .container {
   max-width: 1200px;
-  width: 90%;
-  margin-top: 40px;
+  width: calc(100vw - 30px);
+  margin-top: 10px;
 
   @include flex-between-row;
+
+  & > div {
+    @include flex-between-row;
+
+    & > h4 {
+      color: var(--text-color);
+      margin-left: 5px;
+      font-size: 18px;
+    }
+  }
+  & > ul {
+    @include flex-between-row;
+  }
+}
+
+.link {
+  cursor: pointer;
+
+  margin-left: 40px;
+  margin-right: 40px;
+
+  line-height: 30px;
+  color: var(--text-color);
+  font-weight: 400;
+  font-size: 14px;
+
+  border-bottom: 2px solid transparent;
+
+  &:global(.selected) {
+    border-bottom: 2px solid var(--light-blue-color);
+  }
 }
