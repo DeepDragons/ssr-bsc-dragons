@@ -6,6 +6,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
+import { ConnectButton } from '@/components/connect-button';
+
 const links = [
   {
     path: `/store`,
@@ -23,8 +25,6 @@ const links = [
 
 export const Navbar: React.FC = () => {
   const router = useRouter();
-
-  console.log(router.pathname)
 
   return (
     <nav className={styles.container}>
@@ -54,6 +54,7 @@ export const Navbar: React.FC = () => {
           </Link>
         ))}
       </ul>
+      <ConnectButton />
     </nav>
   );
 };

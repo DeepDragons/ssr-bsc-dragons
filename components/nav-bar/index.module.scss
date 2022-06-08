@@ -8,6 +8,7 @@
   @include flex-between-row;
 
   & > div {
+    cursor: pointer;
     @include flex-between-row;
 
     & > h4 {
