@@ -2,7 +2,7 @@
 
 .container {
   background: var(--darker-color) none repeat scroll 0% 0%;
-  border-radius: 16px;
+  @include border-radius(16px);
 
   @include flex-between-row;
 }

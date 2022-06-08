@@ -21,5 +21,15 @@
 }
 
 .wrapper {
-  
+  flex-wrap: wrap;
+  @include flex-between-row;
+}
+
+.element {
+  @include flex-center-column;
+
+  & > p {
+    margin-block-end: 5px;
+    font-weight: 300;
+  }
 }

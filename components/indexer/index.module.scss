@@ -1,0 +1,32 @@
+@import "@/styles/mixins";
+
+.container {
+  background: var(--darker-color) none repeat scroll 0% 0%;
+
+  @include flex-between-row;
+  @include border-radius(16px);
+
+  & > input {
+    background: transparent;
+    border: none;
+    color: var(--text-color);
+    text-align: center;
+
+    width: 100px;
+
+    font-weight: bold;
+    font-size: 18px;
+
+    &:focus {
+      border: none;
+      outline: none;
+    }
+  }
+}
+
+.btn {
+  cursor: pointer;
+  padding: 13px;
+
+  @include flex-center;
+}
