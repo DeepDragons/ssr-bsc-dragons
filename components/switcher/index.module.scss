@@ -2,8 +2,8 @@
 
 .container {
   background: var(--darker-color) none repeat scroll 0% 0%;
-  @include border-radius(16px);
 
+  @include border-radius(16px);
   @include flex-between-row;
 }
 
@@ -15,12 +15,13 @@
   font-weight: bold;
   font-size: 18px;
 
-  padding: 10px 40px;
+  padding: 10px 34px;
   margin: 5px;
 
   width: fit-content;
-  border-radius: 16px;
   border: 1px solid transparent;
+
+  @include border-radius(16px);
 
   &:global(.selected) {
     border: 1px solid var(--text-color);

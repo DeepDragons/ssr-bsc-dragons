@@ -9,7 +9,7 @@ import { Indexer } from '@/components/indexer';
 
 export const BuyForm: React.FC = () => {
   const [selectedtoken, setSelectedtoken] = React.useState(0);
-  const [dragons, setDragons] = React.useState(0);
+  const [dragons, setDragons] = React.useState(1);
 
   return (
     <form className={styles.container}>
@@ -38,6 +38,11 @@ export const BuyForm: React.FC = () => {
             max={16}
             onInput={setDragons}
           />
+        </div>
+        <div className={styles.element}>
+          <button>
+            Buy
+          </button>
         </div>
       </div>
     </form>

@@ -1,6 +1,7 @@
 @import "@/styles/mixins";
 
 .container {
-  height: 40vh;
+  padding-top: 10vh;
+
   @include flex-center-column;
 }

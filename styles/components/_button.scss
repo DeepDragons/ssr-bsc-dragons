@@ -2,14 +2,20 @@ button {
   cursor: pointer;
   color: var(--text-color);
   padding: 10px 22px;
-  border-radius: 16px;
 
   background: var(--darker-color) none repeat scroll 0% 0%;
   border: 1px solid var(--darker-color);
   user-select: none;
   text-align: center;
 
+  @include border-radius(16px);
+
   &:hover {
     border: 1px solid var(--muted-color);
+  }
+
+  &:focus {
+    border: none;
+    outline: none;
   }
 }

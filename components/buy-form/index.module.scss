@@ -3,13 +3,13 @@
 .container {
   background: var(--secondary-color) none repeat scroll 0% 0%;
   padding: 36px;
-  border-radius: 16px;
   max-width: 900px;
   width: auto;
 
-  display: flex;
-  flex-direction: column;
   align-items: center;
+
+  @include flex-column;
+  @include border-radius(16px);
 }
 
 .header {
@@ -22,14 +22,31 @@
 
 .wrapper {
   flex-wrap: wrap;
-  @include flex-between-row;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  @media (max-width: 836px) {
+    justify-content: center;
+  }
 }
 
 .element {
+  margin: 16px;
+
   @include flex-center-column;
 
   & > p {
     margin-block-end: 5px;
     font-weight: 300;
+  }
+  & > button {
+    padding: 22px 100px;
+
+    background: var(--primary-color) none repeat scroll 0% 0%;
+
+    &:hover {
+      border: 1px solid var(--light-blue-color);
+    }
   }
 }
