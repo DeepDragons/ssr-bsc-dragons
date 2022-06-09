@@ -9,5 +9,10 @@
     "dragons": "Dragons",
     "fights": "Fights"
   },
-  "connect_btn": "Connect"
+  "connect_btn": "Connect",
+  "copy_adr": "Copy",
+  "view_explorer": "View on Explorer",
+  "tx_appear_here": "Your transactions will appear here...",
+  "account": "Account",
+  "connected_via": "Connected with {{type}} wallet to"
 }

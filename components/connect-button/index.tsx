@@ -7,6 +7,7 @@ import { useStore } from "react-stores";
 import { useTranslation } from "next-i18next";
 import { $wallet } from "@/store/accounts";
 import { trim } from "@/filters/trim";
+import { AccountModal } from "@/modals/account";
 
 
 export const ConnectButton: React.FC = () => {
@@ -14,6 +15,7 @@ export const ConnectButton: React.FC = () => {
 
   const wallet = useStore($wallet);
   const [loading, setLoading] = React.useState(true);
+  const [accountModal, setAccountModal] = React.useState(false);
 
 
   const buttonText = React.useMemo(() => {
@@ -26,6 +28,11 @@ export const ConnectButton: React.FC = () => {
 
 
   const hanldeConnect = React.useCallback(async() => {
+    if (wallet.accounts.length > 0) {
+      setAccountModal(true);
+      return;
+    }
+
     setLoading(true);
     const provider: any = await detectEthereumProvider();
     setLoading(false);
@@ -46,7 +53,7 @@ export const ConnectButton: React.FC = () => {
     } else {
       console.log('Please install MetaMask!');
     }
-  }, []);
+  }, [wallet]);
 
   React.useEffect(() => {
     return () => {
@@ -55,14 +62,22 @@ export const ConnectButton: React.FC = () => {
   }, []);
 
   return (
-    <button
-      className={classNames(styles.container, {
-        loading
-      })}
-      disabled={loading}
-      onClick={hanldeConnect}
-    >
-      {buttonText}
-    </button>
+    <>
+      <div>
+        <AccountModal
+          show={accountModal}
+          onClose={() => setAccountModal(false)}
+        />
+      </div>
+      <button
+        className={classNames(styles.container, {
+          loading
+        })}
+        disabled={loading}
+        onClick={hanldeConnect}
+      >
+        {buttonText}
+      </button>
+    </>
   );
 };

@@ -10,10 +10,12 @@ type Prop = {
   title?: React.ReactNode;
   show: boolean;
   width?: string;
+  children: React.ReactNode;
   onClose: () => void;
 };
 
 type HeadProp = {
+  children: React.ReactNode;
   onClose: () => void;
 };
 
@@ -37,7 +39,7 @@ export const Modal: React.FC<Prop> = ({
 
   return (
     <div
-      className={classNames(styles.container, {
+      className={classNames(styles.modalcontainer, {
         'show-dialog': show
       })}
       ref={(n) => (node.current = n)}
