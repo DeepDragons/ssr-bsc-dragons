@@ -1,5 +1,5 @@
 export interface WalletStore {
-  accounts: string[];
+  account?: string;
   initialized: boolean;
   isConnected: boolean;
   isPermanentlyDisconnected: boolean;

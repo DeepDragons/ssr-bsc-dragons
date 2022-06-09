@@ -30,12 +30,12 @@ export var AccountCard: React.FC<Prop> = function ({ wallet }) {
         .
       </p>
       <h4>
-        {wallet ? trim(wallet.accounts[0], 15) : ``}
+        {wallet ? trim(wallet?.account || '', 15) : ``}
       </h4>
       <div className={styles.row}>
         <div
           className={styles.copy}
-          onClick={() => copy(String(wallet.accounts[0]))}
+          onClick={() => copy(String(wallet?.account || ''))}
         >
           <CopyIcon />
           <p>
@@ -44,7 +44,7 @@ export var AccountCard: React.FC<Prop> = function ({ wallet }) {
         </div>
         <a
           className={styles.second}
-          href={wallet.accounts[0]}
+          href={wallet.account || ''}
           target="_blank"
           rel="noopener noreferrer"
         >

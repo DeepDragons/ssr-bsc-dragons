@@ -19,8 +19,8 @@ export const ConnectButton: React.FC = () => {
 
 
   const buttonText = React.useMemo(() => {
-    if (wallet.accounts.length > 0) {
-      return trim(wallet.accounts[0]);
+    if (wallet.account) {
+      return trim(wallet.account);
     }
 
     return commonTranslation.t('connect_btn')
@@ -28,7 +28,7 @@ export const ConnectButton: React.FC = () => {
 
 
   const hanldeConnect = React.useCallback(async() => {
-    if (wallet.accounts.length > 0) {
+    if (wallet.account) {
       setAccountModal(true);
       return;
     }
@@ -38,7 +38,7 @@ export const ConnectButton: React.FC = () => {
     setLoading(false);
 
     if (provider) {
-      await provider.enable();
+      await provider.request({ method: 'eth_requestAccounts' });
 
       const chainId = await provider.request({
         method: 'eth_chainId'
@@ -46,10 +46,22 @@ export const ConnectButton: React.FC = () => {
 
       $wallet.setState({
         ...provider._state,
+        account: provider.selectedAddress,
         chainId
       });
 
-      console.log(chainId);
+      provider.on('accountsChanged', ([account]: string[]) => {
+        $wallet.setState({
+          ...$wallet.state,
+          account
+        });
+      });
+      provider.on('chainChanged', (chainId: string) => {
+        $wallet.setState({
+          ...$wallet.state,
+          chainId
+        });
+      });
     } else {
       console.log('Please install MetaMask!');
     }
@@ -62,13 +74,11 @@ export const ConnectButton: React.FC = () => {
   }, []);
 
   return (
-    <>
-      <div>
-        <AccountModal
-          show={accountModal}
-          onClose={() => setAccountModal(false)}
-        />
-      </div>
+    <div>
+      <AccountModal
+        show={accountModal}
+        onClose={() => setAccountModal(false)}
+      />
       <button
         className={classNames(styles.container, {
           loading
@@ -78,6 +88,6 @@ export const ConnectButton: React.FC = () => {
       >
         {buttonText}
       </button>
-    </>
+    </div>
   );
 };
