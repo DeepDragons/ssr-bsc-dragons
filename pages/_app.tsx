@@ -3,11 +3,12 @@ import '../styles/globals.scss';
 import type { AppProps } from 'next/app';
 
 import NextNprogress from "nextjs-progressbar";
+import { appWithTranslation } from 'next-i18next';
 import { Navbar } from '@/components/nav-bar';
 import { Footer } from '@/components/footer';
 
 
-function MyApp({ Component, pageProps }: AppProps) {
+function DragonsApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <NextNprogress
@@ -24,4 +25,4 @@ function MyApp({ Component, pageProps }: AppProps) {
   );
 }
 
-export default MyApp;
+export default appWithTranslation(DragonsApp);

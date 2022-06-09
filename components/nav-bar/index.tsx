@@ -4,6 +4,7 @@ import classNames from "classnames";
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
 
 import { ConnectButton } from '@/components/connect-button';
@@ -11,19 +12,20 @@ import { ConnectButton } from '@/components/connect-button';
 const links = [
   {
     path: `/store`,
-    name: `Store`,
+    name: `store`,
   },
   {
     path: `/dragons`,
-    name: `Dragons`,
+    name: `dragons`,
   },
   {
     path: `/fights`,
-    name: `Fights`,
+    name: `fights`,
   }
 ];
 
 export const Navbar: React.FC = () => {
+  const commonTranslation = useTranslation(`common`);
   const router = useRouter();
 
   return (
@@ -37,7 +39,7 @@ export const Navbar: React.FC = () => {
               width="19"
             />
             <h4>
-              DragonBSC
+              {commonTranslation.t('title')}
             </h4>
         </div>
       </Link>
@@ -49,7 +51,7 @@ export const Navbar: React.FC = () => {
             passHref
           >
             <li className={classNames(styles.link, { selected: router.pathname === link.path })}>
-              {link.name}
+              {commonTranslation.t(`links.${link.name}`)}
             </li>
           </Link>
         ))}
