@@ -65,7 +65,7 @@ export const ModalHeader: React.FC<HeadProp> = ({
   <div className={styles.modalheader}>
     <h3>{children}</h3>
     <span onClick={onClose}>
-      <CloseIcon />
+      <CloseIcon color="var(--muted-color)" />
     </span>
   </div>
 );
