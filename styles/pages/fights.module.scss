@@ -1,0 +1,7 @@
+@import "@/styles/mixins";
+
+.container {
+  min-height: 80vh;
+
+  @include flex-center-top-column;
+}
