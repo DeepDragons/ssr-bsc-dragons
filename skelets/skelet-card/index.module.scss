@@ -1,0 +1,60 @@
+@import "@/styles/mixins";
+
+.container {
+  cursor: progress;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  text-align: center;
+
+  padding: 16px;
+  margin: 15px;
+
+  border: 1px solid transparent;
+
+  background: linear-gradient(
+      0.25turn,
+      transparent,
+      var(--muted-color),
+      transparent
+    ),
+    linear-gradient(var(--secondary-color), var(--secondary-color)),
+    radial-gradient(
+      38px circle at 19px 19px,
+      var(--secondary-color) 50%,
+      transparent 51%
+    ),
+    linear-gradient(var(--muted-color), var(--muted-color));
+  background-repeat: no-repeat;
+  animation: loading 0.9s infinite;
+
+  @include border-radius(16px);
+}
+
+.empety {
+  background: var(--darker-color);
+  height: 250px;
+  width: 250px;
+
+  @include border-radius(100%);
+}
+
+.content {
+  background-color: var(--darker-color);
+
+  height: 20px;
+  width: 100px;
+
+  align-self: end;
+  margin: 10px;
+
+  @include border-radius(8px);
+}
+
+@keyframes loading {  
+  to {
+    background-position: 315px 0, 0 0, 0 190px, 50px 195px;
+  }
+}
