@@ -24,6 +24,7 @@ button.loading {
   color: transparent !important;
   pointer-events: none;
   position: relative;
+  opacity: 0.8;
 
   &::after {
     animation: loading-button 500ms infinite linear;

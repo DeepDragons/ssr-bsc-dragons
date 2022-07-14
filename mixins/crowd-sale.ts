@@ -14,7 +14,6 @@ export class CrowdSale {
 
     const price = await crowdsale.methods.dragonPrice().call();
 
-
     $state.setState({
       ...$state.state,
       price

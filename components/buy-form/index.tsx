@@ -5,12 +5,15 @@ import React, { FormEvent } from "react";
 
 import { Switcher } from '@/components/switcher';
 import { Indexer } from '@/components/indexer';
+import classNames from "classnames";
 
 type Prop = {
+  loading: boolean;
   onBuy: (num: number) => void;
 };
 
 export const BuyForm: React.FC<Prop> = ({
+  loading,
   onBuy
 }) => {
   const storeTranslation = useTranslation(`store`);
@@ -55,7 +58,9 @@ export const BuyForm: React.FC<Prop> = ({
           />
         </div>
         <div className={styles.element}>
-          <button>
+          <button className={classNames({
+            loading
+          })}>
             {storeTranslation.t('button')}
           </button>
         </div>
