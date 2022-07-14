@@ -1,20 +1,33 @@
 import styles from "./index.module.scss";
 
 import { useTranslation } from "next-i18next";
-import React from "react";
+import React, { FormEvent } from "react";
 
 import { Switcher } from '@/components/switcher';
 import { Indexer } from '@/components/indexer';
 
+type Prop = {
+  onBuy: (num: number) => void;
+};
 
-export const BuyForm: React.FC = () => {
+export const BuyForm: React.FC<Prop> = ({
+  onBuy
+}) => {
   const storeTranslation = useTranslation(`store`);
 
   const [selectedtoken, setSelectedtoken] = React.useState(0);
   const [dragons, setDragons] = React.useState(1);
 
+  const hanldeSubmit = React.useCallback((event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    onBuy(dragons);
+  }, [dragons]);
+
   return (
-    <form className={styles.container}>
+    <form
+      className={styles.container}
+      onSubmit={hanldeSubmit}
+    >
       <div className={styles.header}>
         <h2>
           {storeTranslation.t('title')}
