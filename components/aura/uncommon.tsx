@@ -45,12 +45,13 @@ export var UncommonAura: React.FC<Prop> = function ({
           width="1"
           height="1"
         >
-          <use xlinkHref={`#dragon-${id}`} transform="scale(0.0022)" />
+          <use xlinkHref={`#dragon-${id}`} transform="scale(0.0046)" />
         </pattern>
         <ProgressiveImage src={url} placeholder={url}>
           {(src: string) => (
             <image
               id={`dragon-${id}`}
+              width={width}
               xlinkHref={loadError ? EMPTY : src}
               color={color}
               onError={() => setLoadError(true)}

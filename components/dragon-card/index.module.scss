@@ -1,0 +1,24 @@
+
+.container {
+  cursor: pointer;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  padding: 16px;
+  margin: 15px;
+  border-radius: 16px;
+
+  background-color: var(--darker-color);
+  border: 1px solid transparent;
+
+  animation: fadeInFromNone 0.5s ease-out;
+
+  transition: 0.3s;
+
+  &:hover {
+    border: 1px solid var(--muted-color);
+  }
+}

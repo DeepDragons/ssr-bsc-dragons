@@ -56,13 +56,14 @@ export var ImmortalAura: React.FC<Prop> = function ({
         >
           <use
             xlinkHref={`#dragon-${id}`}
-            transform="translate(-0.126239 -0.0698607) scale(0.0027)"
+            transform="scale(0.0046)"
           />
         </pattern>
         <ProgressiveImage src={url} placeholder={url}>
           {(src: string) => (
             <image
               id={`dragon-${id}`}
+              width={width}
               xlinkHref={loadError ? EMPTY : src}
               color={color}
               onError={() => setLoadError(true)}

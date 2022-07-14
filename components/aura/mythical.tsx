@@ -50,13 +50,14 @@ export var MythicalAura: React.FC<Prop> = function ({
           width="1"
           height="1"
         >
-          <use xlinkHref={`#dragon-${id}`} transform="scale(0.0022)" />
+          <use xlinkHref={`#dragon-${id}`} transform="scale(0.0046)" />
         </pattern>
         <ProgressiveImage src={url} placeholder={url}>
           {(src: string) => (
             <image
               id={`dragon-${id}`}
               xlinkHref={loadError ? EMPTY : src}
+              width={width}
               color={color}
               onError={() => setLoadError(true)}
             />
