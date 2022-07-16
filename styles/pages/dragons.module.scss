@@ -8,3 +8,23 @@
   flex-wrap: wrap;
   align-items: flex-start;
 }
+
+.cardtext {
+  flex: 1 0 0%;
+  overflow: hidden;
+  white-space: nowrap;
+  font-weight: bold;
+  font-size: 16px;
+  color: var(--text-color);
+  text-overflow: ellipsis;
+  max-width: 246px;
+
+  & > span {
+    color: var(--success-color);
+  }
+}
+
+.cardcontainer {
+  width: 100%;
+  text-align: left;
+}

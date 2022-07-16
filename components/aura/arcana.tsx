@@ -53,7 +53,7 @@ export var ArcanaAura: React.FC<Prop> = function ({
           width="1"
           height="1"
         >
-          <use xlinkHref={`#dragon-${id}`} transform="scale(0.0046)" />
+          <use xlinkHref={`#dragon-${id}`} transform="scale(0.00399)" />
         </pattern>
         <ProgressiveImage src={url} placeholder={url}>
           {(src: string) => (

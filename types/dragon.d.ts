@@ -4,4 +4,5 @@ export interface DragonObject {
   id: string;
   rarity: number;
   url: string;
+  name?: string;
 }
